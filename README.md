@@ -11,8 +11,8 @@ A simple tic tac toe game.
 - [] display "win" or "draw" message
 Screenshots:
 
-![screenshot](/data/screenshot0.png)
-![screenshot](/data/screenshot1.png)
-![screenshot](/data/screenshot2.png)
+![screenshot](/data/screenshot0.jpg)
+![screenshot](/data/screenshot1.jpg)
+![screenshot](/data/screenshot2.jpg)
 
 :new_moon_with_face:
