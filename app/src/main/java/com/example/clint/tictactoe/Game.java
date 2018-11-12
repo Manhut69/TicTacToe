@@ -2,6 +2,8 @@ package com.example.clint.tictactoe;
 
 import android.widget.Button;
 
+import java.io.Serializable;
+
 import static com.example.clint.tictactoe.GameState.DRAW;
 import static com.example.clint.tictactoe.GameState.IN_PROGRESS;
 import static com.example.clint.tictactoe.GameState.PLAYER_ONE;
@@ -11,7 +13,7 @@ import static com.example.clint.tictactoe.TileState.CIRCLE;
 import static com.example.clint.tictactoe.TileState.CROSS;
 import static com.example.clint.tictactoe.TileState.INVALID;
 
-public class Game {
+public class Game implements Serializable {
     final private int BOARD_SIZE = 3;
     private TileState[][] board;
 
@@ -41,7 +43,11 @@ public class Game {
         else
             return INVALID;
 
-}
+    }
+
+    public TileState getState(int row, int column) {
+        return(board[row][column]);
+    }
 
     public void changestate(TileState state, int row, int column) {
         switch(state) {
