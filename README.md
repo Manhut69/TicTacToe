@@ -2,7 +2,9 @@
 
 A simple tic tac toe game.
 <h3>TODO:</h3>
-- [] Rotate, savestates
+- [] Rotate
+
+- [x] Savestates
 
 - [] put the wongame() at the end of the mainactivity so the game knows who won after a button has been pressed _and not at a new buttonpress_
 
