@@ -13,7 +13,7 @@ A simple tic tac toe game.
 - [ ] display "win" or "draw" message
 Screenshots:
 
-![screenshot](/data/screenshot0.jpg =100x)
+![screenshot](/data/screenshot0.jpg)
 ![screenshot](/data/screenshot1.jpg)
 ![screenshot](/data/screenshot2.jpg)
 
