@@ -83,7 +83,10 @@ public class Game implements Serializable {
             if (board[0][0] == CROSS){
                 return PLAYER_ONE;
             }
-            return PLAYER_TWO;
+            else if (board[0][0] == CIRCLE) {
+                return PLAYER_TWO;
+            }
+            return IN_PROGRESS;
         }
         else if(board[1][0] == board[1][1] && board[1][1] == board[1][2]){
             if (board[1][0] == CROSS){
