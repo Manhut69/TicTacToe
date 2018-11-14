@@ -23,6 +23,7 @@ import static com.example.clint.tictactoe.TileState.CROSS;
 public class MainActivity extends AppCompatActivity {
 
     Game game;
+    boolean resetFaceClicked = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,8 +151,16 @@ public class MainActivity extends AppCompatActivity {
         textBox.setText("");
 
         ImageButton imgbtn = (ImageButton) findViewById(R.id.imageButton2);
-        Log.d("R.id.imageButton2", "pressed");
+        if(resetFaceClicked) {
+            imgbtn.setImageResource(R.drawable.naamloos);
+            resetFaceClicked = false;
         }
-    
+        else{
+            imgbtn.setImageResource(R.drawable.surprised);
+            resetFaceClicked = true;
+        }
+
+    }
+
 
 }
