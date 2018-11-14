@@ -68,70 +68,62 @@ public class Game implements Serializable {
             else if(board[0][0] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[0][0] == board[1][0] && board[1][0] == board[2][0]){
+        if(board[0][0] == board[1][0] && board[1][0] == board[2][0]){
             if (board[0][0] == CROSS){
                 return PLAYER_ONE;
             }
             else if(board[0][0] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[0][0] == board[1][1] && board[1][1] == board[2][2]){
+        if(board[0][0] == board[1][1] && board[1][1] == board[2][2]){
             if (board[0][0] == CROSS){
                 return PLAYER_ONE;
             }
             else if (board[0][0] == CIRCLE) {
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[1][0] == board[1][1] && board[1][1] == board[1][2]){
+        if(board[1][0] == board[1][1] && board[1][1] == board[1][2]){
             if (board[1][0] == CROSS){
                 return PLAYER_ONE;
             }
             else if(board[1][0] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[2][0] == board[2][1] && board[2][1] == board[2][2]){
+        if(board[2][0] == board[2][1] && board[2][1] == board[2][2]){
             if (board[2][0] == CROSS){
                 return PLAYER_ONE;
             }
             else if(board[2][0] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[0][1] == board[1][1] && board[1][1] == board[2][1]){
+        if(board[0][1] == board[1][1] && board[1][1] == board[2][1]){
             if (board[0][1] == CROSS){
                 return PLAYER_ONE;
             }
             else if(board[0][1] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[0][2] == board[1][2] && board[1][2] == board[2][2]){
+        if(board[0][2] == board[1][2] && board[1][2] == board[2][2]){
             if (board[0][2] == CROSS){
                 return PLAYER_ONE;
             }
             else if(board[0][2] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
-        else if(board[0][2] == board[1][1] && board[1][1] == board[2][0]){
+        if(board[0][2] == board[1][1] && board[1][1] == board[2][0]){
             if (board[0][2] == CROSS){
                 return PLAYER_ONE;
             }
             else if(board[0][2] == CIRCLE){
                 return PLAYER_TWO;
             }
-            return IN_PROGRESS;
         }
         for(int i = 0; i<BOARD_SIZE; i++) {
             for (int j = 0; j < BOARD_SIZE; j++) {
