@@ -1,11 +1,10 @@
 package com.example.clint.tictactoe;
 
 import android.annotation.SuppressLint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -20,9 +19,9 @@ import static com.example.clint.tictactoe.TileState.CROSS;
 public class MainActivity extends AppCompatActivity {
 
     Game game;
-    boolean resetFaceClicked = true;
     List<Integer> buttons;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
