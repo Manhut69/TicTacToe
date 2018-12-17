@@ -1,5 +1,6 @@
 package com.example.clint.tictactoe;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,10 +9,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
-import java.io.Serializable;
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,26 +21,29 @@ public class MainActivity extends AppCompatActivity {
 
     Game game;
     boolean resetFaceClicked = true;
+    List<Integer> buttons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        TextView textBox = findViewById(R.id.textView);
+        textBox.setText("Turn: Player 1");
+        buttons = new ArrayList<>(Arrays.asList(R.id.topleft, R.id.topmid, R.id.topright, R.id.midleft, R.id.midmid, R.id.midright, R.id.botleft, R.id.botmid, R.id.botright));
         if(savedInstanceState!= null) {
             game = (Game) savedInstanceState.getSerializable("game");
-            List<Integer> buttons = new ArrayList<>(Arrays.asList(R.id.topleft, R.id.topmid, R.id.topright, R.id.midleft, R.id.midmid, R.id.midright, R.id.botleft, R.id.botmid, R.id.botright));
             for(int row = 0; row < 3; row++) {
                 for(int column = 0; column < 3; column++) {
-                    Button button = (Button) findViewById(buttons.get(row * 3 + column));
+                    ImageButton btn = findViewById(buttons.get(row * 3 + column));
                     switch (game.getState(row, column)) {
                         case BLANK:
-                            button.setText("");
+                            btn.setImageResource(android.R.color.darker_gray);
                             break;
                         case CROSS:
-                            button.setText("X");
+                            btn.setImageResource(R.drawable.naamloos);
                             break;
                         case CIRCLE:
-                            button.setText("O");
+                            btn.setImageResource(R.drawable.surprised);
                             break;
                     }
                 }
@@ -51,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             game = new Game();
+            for(int row = 0; row < 3; row++) {
+                for (int column = 0; column < 3; column++) {
+                    ImageButton btn = findViewById(buttons.get(row * 3 + column));
+                    btn.setImageResource(android.R.color.darker_gray);
+                    btn.setBackgroundResource(0);
+                }
+            }
         }
     }
 
@@ -60,12 +67,13 @@ public class MainActivity extends AppCompatActivity {
         outState.putSerializable("game", game);
             }
 
+    @SuppressLint("SetTextI18n")
     public void titleClicked(View view) {
-        Log.d("Gamestate", game.checkwon().toString());
+        Log.d("Gamestate", game.checkWon().toString());
         int id = view.getId();
         int row = -1;
         int column = -1;
-        if (game.checkwon() == IN_PROGRESS) {
+        if (game.checkWon() == IN_PROGRESS) {
             switch (id) {
                 case (R.id.topleft):
                     row = 0;
@@ -105,15 +113,18 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            Button btn = findViewById(id);
+            ImageButton btn = findViewById(id);
+            TextView textBox = findViewById(R.id.textView);
             switch (game.choose(row, column)) {
                 case CROSS:
-                    game.changestate(CROSS, row, column);
-                    btn.setText("X");
+                    game.changeState(CROSS, row, column);
+                    btn.setImageResource(R.drawable.naamloos);
+                    textBox.setText("Turn: Player 2");
                     break;
                 case CIRCLE:
-                    game.changestate(CIRCLE, row, column);
-                    btn.setText("O");
+                    game.changeState(CIRCLE, row, column);
+                    btn.setImageResource(R.drawable.surprised);
+                    textBox.setText("Turn: Player 1");
                     break;
                 case INVALID:
                     Log.d("Move", "Invalid");
@@ -121,9 +132,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        if (game.checkwon() != IN_PROGRESS) {
-            TextView textBox = (TextView) findViewById(R.id.textView);
-            switch (game.checkwon()) {
+        if (game.checkWon() != IN_PROGRESS) {
+            TextView textBox = findViewById(R.id.textView);
+            switch (game.checkWon()) {
                 case PLAYER_ONE:
                     Log.d("Win", "Player 1");
                     textBox.setText("Player 1 wins!");
@@ -144,22 +155,9 @@ public class MainActivity extends AppCompatActivity {
         List<Integer> buttons = new ArrayList<>(Arrays.asList(R.id.topleft, R.id.topmid, R.id.topright, R.id.midleft, R.id.midmid, R.id.midright, R.id.botleft, R.id.botmid, R.id.botright));
         game = new Game();
         for (int i = 0; i < 9; i++) {
-            Button button = (Button) findViewById(buttons.get(i));
-            button.setText("");
+            ImageButton btn = findViewById(buttons.get(i));
+            btn.setImageResource(android.R.color.darker_gray);
         }
-        TextView textBox = (TextView) findViewById(R.id.textView);
-        textBox.setText("");
-
-        ImageButton imgbtn = (ImageButton) findViewById(R.id.imageButton2);
-        if(resetFaceClicked) {
-            imgbtn.setImageResource(R.drawable.naamloos);
-            resetFaceClicked = false;
-        }
-        else{
-            imgbtn.setImageResource(R.drawable.surprised);
-            resetFaceClicked = true;
-        }
-
     }
 
 

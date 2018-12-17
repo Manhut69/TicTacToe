@@ -11,78 +11,78 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
+        android:layout_weight="6"
         app:columnCount="3"
-        app:rowCount="3" >
+        app:rowCount="3">
 
-        <Button
+        <ImageButton
             android:id="@+id/topleft"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="0"
             app:layout_row="0" />
 
 
-        <Button
+        <ImageButton
             android:id="@+id/topright"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="2"
             app:layout_row="0" />
 
-        <Button
+        <ImageButton
             android:id="@+id/topmid"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="1"
             app:layout_row="0" />
 
-        <Button
+        <ImageButton
             android:id="@+id/midleft"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="0"
             app:layout_row="1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/midmid"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="1"
             app:layout_row="1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/midright"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="2"
             app:layout_row="1" />
 
-        <Button
+        <ImageButton
             android:id="@+id/botleft"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="0"
             app:layout_row="2" />
 
-        <Button
+        <ImageButton
             android:id="@+id/botmid"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="1"
             app:layout_row="2" />
 
-        <Button
+        <ImageButton
             android:id="@+id/botright"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="titleClicked"
             app:layout_column="2"
@@ -92,19 +92,17 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="resetClicked"
-        app:srcCompat="@drawable/surprised" />
+        android:layout_weight="1"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:onClick="resetClicked"
-        android:text="Resetti" />
+        android:text="Resetti"
+        android:textSize="30sp" />
 </LinearLayout>

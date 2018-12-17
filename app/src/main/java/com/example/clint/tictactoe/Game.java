@@ -1,7 +1,5 @@
 package com.example.clint.tictactoe;
 
-import android.widget.Button;
-
 import java.io.Serializable;
 
 import static com.example.clint.tictactoe.GameState.DRAW;
@@ -13,25 +11,22 @@ import static com.example.clint.tictactoe.TileState.CIRCLE;
 import static com.example.clint.tictactoe.TileState.CROSS;
 import static com.example.clint.tictactoe.TileState.INVALID;
 
-public class Game implements Serializable {
+class Game implements Serializable {
     final private int BOARD_SIZE = 3;
     private TileState[][] board;
 
     private Boolean playerOneTurn;
-    private int movesPlayed;
-    private Boolean gameOver;
 
-    public Game() {
+    Game() {
         board = new TileState[BOARD_SIZE][BOARD_SIZE];
                 for(int i = 0; i<BOARD_SIZE; i++)
                     for(int j=0; j<BOARD_SIZE; j++)
                         board[i][j] = BLANK;
 
         playerOneTurn = true;
-        gameOver = false;
     }
 
-    public TileState choose(int row, int column) {
+    TileState choose(int row, int column) {
         if (board[row][column] == BLANK) {
             if(playerOneTurn) {
                 playerOneTurn = false;
@@ -45,11 +40,11 @@ public class Game implements Serializable {
 
     }
 
-    public TileState getState(int row, int column) {
+    TileState getState(int row, int column) {
         return(board[row][column]);
     }
 
-    public void changestate(TileState state, int row, int column) {
+    void changeState(TileState state, int row, int column) {
         switch(state) {
             case CROSS:
                 board[row][column] = CROSS;
@@ -60,7 +55,7 @@ public class Game implements Serializable {
         }
     }
 
-    public GameState checkwon() {
+    GameState checkWon() {
         if(board[0][0] == board[0][1] && board[0][1] == board[0][2]){
             if (board[0][0] == CROSS){
                 return PLAYER_ONE;
